@@ -1,8 +1,6 @@
 // myPackage.js → myPackage.d.ts → index.ts
-import { init, exit } from "myPackage";
+import { init, exit } from "./myPackage";
 
-init({
-  url: "true",
-});
+init(false, "manju");
 
-exit(1);
+exit(10);
