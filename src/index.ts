@@ -1,6 +1,6 @@
 import crypto from "crypto";
 
-// 🍥 hash, preHash (이전 Hash), height (블록의 Index 위치), data (블록이 보호할 Data)
+// 🍥 hash, preHash (이전 Hash), height (블록의 Index 위치), data (Data in the Block)
 interface BlockShape {
   hash: string;
   prevHash: string;
@@ -9,6 +9,7 @@ interface BlockShape {
 }
 
 class Block implements BlockShape {
+  // 🍥 hash는 prevHash, height, data를 갖고 다시 hash되어야 한다.
   public hash: string;
   constructor(
     public prevHash: string,
@@ -19,5 +20,7 @@ class Block implements BlockShape {
   }
   static calculateHash(prevHash: string, height: number, data: string) {
     const toHash = `${prevHash}${height}${data}`;
+    // hash 생성
+    return crypto.createHash("sha256").update(toHash).digest("hex");
   }
 }
