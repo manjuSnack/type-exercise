@@ -8,7 +8,6 @@ interface BlockShape {
 }
 
 class Block implements BlockShape {
-  // 🍥 hash는 prevHash, height, data를 갖고 다시 hash되어야 한다.
   public hash: string;
   constructor(
     public prevHash: string,
@@ -19,7 +18,6 @@ class Block implements BlockShape {
   }
   static calculateHash(prevHash: string, height: number, data: string) {
     const toHash = `${prevHash}${height}${data}`;
-    // hash 생성
     return crypto.createHash("sha256").update(toHash).digest("hex");
   }
 }
