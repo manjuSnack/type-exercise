@@ -57,6 +57,19 @@ sudo apt-get install -y nodejs
 
 JavaScript는 Type Error, function Error, Runtime Error를 발생한다.
 
+#2.0~2.4 How Typescript Works, Implicit Types vs Explicit Types / Types of TS part One, Two, Three
+
+# TypeScript과 Python에서의 Tuple 차이점
+
+Python에서의 Tuples
+: ( ) 로 값을 지정. 불가변성 특징을 가진다. 호출할 때에는 List와 마찬가지로 튜플명[인덱스]로 호출
+
+TypeScript에서의 Tuple
+: 예시, const player: readonly [string, number, boolean] = ["string", 1, true];과 같이 작성한다.
+
+tuple
+: 셀 수 있는 수량의 순서가 있는 열거형을 나타낸다.
+
 ===
 
 🍫 JavaScript & TypeScript Essential
