@@ -70,6 +70,21 @@ TypeScript에서의 Tuple
 tuple
 : 셀 수 있는 수량의 순서가 있는 열거형을 나타낸다.
 
+#3 Functions, #3.0~3.4 Call Signatures, Overloading, Polymorphism, Generics Recap, Conclusions
+
+# void를 쓰는 경우
+결과값을 반환하지 않는 경우에 쓰이고 void를 안 쓰는 경우에는 'const a = 함수명' 등으로 참조변수에 값을 반환해 담아둘 때 쓰인다.
+
+# '=>' 와 ' : ' 의 차이점
+
+예를 들어, Generic을 사용할 때
+
+type Generic = <T>(a:T[]) => T
+:generics는 다수의 타입지정을 하지 않아도 유추해서 타입을 맞춰주기 때문에 이와 같이 간단히 작성하여도 된다.
+
+type Generic = {  <T>(a:T[]):T }
+: 와 같이 작성하지 않고 위에 작성방법으로도 간단히 다룰 수 있다.
+
 ===
 
 🍫 JavaScript & TypeScript Essential
@@ -146,17 +161,57 @@ TypeScript 설치
 
 # 2 JavaScript 그리고 TypeScript / #2.1~2.3 JavaScript 변천사, 웹앱의 구성요소, 모던 JavaScript와 개발환경
 
---🥤 Client Side Rendering과 Server Side Rendering의 차이
+# JavaScript 역사
 
-: 앱의 성격에 따라 선택하여야 한다. Client Side Rendering의 경우에는  2D, 3D 그래픽 툴을 이용할 수 있다.
+Netscape / LiveScript (1995) -- JScript -- JavaScript Ecma(1997) -- EcmaScript(Ajax, 2005) -- ActionScript(2009) / EcmaScript v5(2009) --
 
---🥤 import, export와 script 태그의 차이
+ECMAScript6 (ES2015) 이후부터 모던 JavaScript라고 지칭하였다.  
 
-: import, export는 브라우저의 호환성이 지원되지 않으면 사용하지 못 할 수도 있다. 
+JavaScript 3.0과 5.0 사이에 4.0은 iPhone출시와 Adobe Flash가 사장이 되면서 출시되지 못 하였다.
+
+# 웹 앱의 필수 기본 구성요소
+
+: HTML, CSS, JavaScript
+
+HTML
+: UI 구성
+
+# Client Side Rendering과 Server Side Rendering의 차이
+
+Client Side Rendering
+: HTML을 주도적으로 만들어서 UI를 표현하는 방법
+
+Server Side Rendering
+: 서버에서 즉, 웹 서버 주도적으로 HTML을 만들어 브라우저에게 전송하는 방법
+
+: 앱의 성격에 따라 선택하여야 한다. Client Side Rendering의 경우에는 canvas태그 등으로  2D, 3D 그래픽 툴을 이용할 수 있다.
+
+# 추가 필수 웹 스펙
+
+: 웹 워커, 웹 어셈블리
+
+# 모던 JavaScript의 현재 부딪힌 문제점
+
+# 첫번째 ① import, export와 script 태그의 차이
+
+: import, export는 브라우저의 호환성이 지원되지 않으면 사용하지 못 할 수도 있다. JavaScript modules mdn 참고
 다수의 script 태그로 JavaScript를 호출할 때 import, export로 module에서 간결하게 호출해 쓸 수 있고 script 태그간 충돌의 문제점을 줄일 수 있었다.
 
+# 두번째 ② 최신 문법 사용함에 브라우저 호환성 문제
+
+:  여전히 JavaScript의 최신문법이 브라우저에서 지원할 수 있는 기능이 제한되어 있다. 
+
 Bundler
-: 배포에 있어 다수의 .js를 하나의 .js 파일로 만드는 도구. 
+: 배포에 있어 다수의 .js를 불러들여 하나의 .js 파일로 만드는 도구. Webpack, 
+
+Trans Fileler
+: 기계어로 바꾸는 작업이 필요하듯 브라우저가 이해할 수 있는 언어는 JavaScript이므로 여러 언어에서 JavaScript로 변환하거나 최신문법에서 낮은 버전으로 변환하는 것이
+Babel이라고 한다.
 
 hbs ( handlebars )
 : template 파일
+
+#2.4~2.5 Typescript vs Javascript, nodejs & npm
+
+# 현재 시장에서 TypeScript를 표준으로 도입하고 있는 추세이다.
+
