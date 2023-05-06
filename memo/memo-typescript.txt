@@ -87,6 +87,32 @@ type Generic = {  <T>(a:T[]):T }
 
 #4 CLASSES AND INTERFACES, #4.0~4.5 Classes, Recap, Interfaces, Interface part Two, Recap, Polymorphism
 
+#5 TYPESCRIPT BLOOKCHAIN, #5.0~5.8 Introduction, Targets, Lib Configuration, Declaration Files, JSDoc, Blocks, Definitely Typed, Chain, Conclusions
+
+# TypeScript 설치
+: npm install -D typescript
+
+# index.ts와 tsconfig.json 만들기
+
+: touch index.ts tsconfig.json
+
+# JavaScript → TypeScript의 type 지정하는 방법 2가지
+
+# 방법 ① '~.d.ts' File
+: JavaScript API 혹 JavaScript, module를 TypeScript로 불러올 때 type을 정의하기 위한 파일
+
+# 방법 ② // @ts-check
+: JavaScript File에 '// @ts-check'로 type을 정의할 수 있다.
+
+# ts-node / nodemon Install
+
+npm i -D ts-node
+: 빌드 없이 typescript file을 실행한다.
+
+npm i nodemon
+: 자동으로 command를 재실행 시켜준다.
+
+#5.5 ~ 학습중
 
 ===
 

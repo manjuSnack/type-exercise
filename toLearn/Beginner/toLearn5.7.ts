@@ -1,3 +1,4 @@
+// #5.7 Chain
 // # src/index.ts
 import crypto from "crypto";
 // import * as crypto from "crypto"; // import Error 해결 방법 ①

@@ -1,3 +1,4 @@
+// #3.8 댓글 목록이 표시되는 아름다운 UI 만들기
 const container = document.getElementById("root");
 const ajax = new XMLHttpRequest();
 const content = document.createElement("div");
@@ -5,7 +6,6 @@ const NEWS_URL = "https://api.hnpwa.com/v0/news/1.json";
 const CONTENT_URL = "https://api.hnpwa.com/v0/item/@id.json";
 const store = {
   currentPage: 1,
-  feeds: [],
 };
 
 function getData(url) {
@@ -15,17 +15,8 @@ function getData(url) {
   return JSON.parse(ajax.response);
 }
 
-function makeFeeds(feeds) {
-  for (let i = 0; i < feeds.length; i++) {
-    feeds[i].read = false;
-  }
-  return feeds;
-}
-
 function newsFeed() {
-  // const newsFeed = getData(NEWS_URL);
-  // const newsFeed = store.feeds;
-  let newsFeed = store.feeds;
+  const newsFeed = getData(NEWS_URL);
   const newsList = [];
   let template = `
     <div class="bg-gray-600 min-h-screen">
@@ -52,23 +43,16 @@ function newsFeed() {
     </div>
   `;
 
-  if (newsFeed.length === 0) {
-    newsFeed = store.feeds = makeFeeds(getData(NEWS_URL));
-  }
-
+  // newsList.push("<ul>");
   for (let i = (store.currentPage - 1) * 10; i < store.currentPage * 10; i++) {
     newsList.push(`
-    <div class="p-6 ${
-      newsFeed[i].read ? "bg-red-500" : "bg-white"
-    } mt-6 rounded-lg shadow-md transition-colors duration-500 hover:bg-green-100">
+    <div class="p-6 bg-white mt-6 rounded-lg shadow-md transition-colors duration-500 hover:bg-green-100">
       <div class="flex">
         <div class="flex-auto">
           <a href="#/show/${newsFeed[i].id}">${newsFeed[i].title}</a>
         </div>
         <div class="text-center text-sm">
-          <div class="w-10 text-white bg-green-300 rounded-lg px-0 py-2">${
-            newsFeed[i].comments_count
-          }</div>
+          <div class="w-10 text-white bg-green-300 rounded-lg px-0 py-2">${newsFeed[i].comments_count}</div>
         </div>
       </div>
       <div class="flex mt-3">
@@ -94,6 +78,21 @@ function newsFeed() {
       : newsFeed.length / 10
   );
 
+  // newsList.push("</ul>");
+  // newsList.push(`
+  // <div>
+  // <a href="#/page/${
+  //   store.currentPage > 1 ? store.currentPage - 1 : 1
+  // }">이전 페이지</a>
+  // <a href="#/page/${
+  //   newsFeed.length / 10 > store.currentPage
+  //     ? store.currentPage + 1
+  //     : newsFeed.length / 10
+  // }">다음 페이지</a>
+  // </div>
+  // `);
+
+  // container.innerHTML = newsList.join("");
   container.innerHTML = template;
 }
 
@@ -125,13 +124,6 @@ function newsDetail() {
 </div>
   `;
 
-  for (let i = 0; i < store.feeds.length; i++) {
-    if (store.feeds[i].id === Number(id)) {
-      store.feeds[i].read = true;
-      break;
-    }
-  }
-
   function makeComment(comments, called = 0) {
     const commentString = [];
 
@@ -158,6 +150,13 @@ function newsDetail() {
     "{{__comments__}}",
     makeComment(newsContent.comments)
   );
+  // container.innerHTML = `
+  //   <h1>${newsContent.title}</h1>
+
+  //   <div>
+  //     <a href="#/page/${store.currentPage}">목록으로</a>
+  //   </div>
+  // `;
 }
 
 function router() {

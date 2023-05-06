@@ -1,3 +1,4 @@
+// #5.5 Blocks
 // # src/index.ts
 import crypto from "crypto";
 // import * as crypto from "crypto"; // import Error 해결 방법 ①
@@ -20,54 +21,10 @@ class Block implements BlockShape {
   }
   static calculateHash(prevHash: string, height: number, data: string) {
     const toHash = `${prevHash}${height}${data}`;
-    return crypto.createHash("sha256").update(toHash).digest("hex");
   }
 }
-
-class Blockchain {
-  private blocks: Block[];
-  constructor() {
-    this.blocks = [];
-  }
-  private getPrevHash() {
-    if (this.blocks.length === 0) return "";
-    return this.blocks[this.blocks.length - 1].hash;
-  }
-  public addBlock(data: string) {
-    const newBlock = new Block(
-      this.getPrevHash(),
-      this.blocks.length + 1,
-      data
-    );
-    this.blocks.push(newBlock);
-  }
-  public getBlocks() {
-    // return this.blocks; // 보안상 위험하다.
-    return [...this.blocks];
-  }
-}
-
-const blockchain = new Blockchain();
-
-blockchain.addBlock("First one");
-blockchain.addBlock("Second one");
-blockchain.addBlock("Third one");
-blockchain.addBlock("Fourth one");
-
-// getBlocks()에 return this.blocks 일때 보안상 위험하다. 아래 결과 참고
-// console.log(blockchain.getBlocks().push(new Block("abcd", 100, "Hacked")));
-
-console.log(blockchain.getBlocks());
 
 // Block Chain
-
-// definitelyTyped
-// : NodeJS module의 많은 Package에 대한 Type을 정의해둔 Library
-
-// crypto
-// : hash값으로 변경해준다.
-// crypto.createHash("sha256").update("바꿀 값을 담은 변수").digest("hex")
-// : sha256과 hex로 해쉬 값으로 바꿀 변수를 바꾼다.
 
 // # JavaScript → TypseScript의 type 지정하는 방법 2가지
 // --- # 방법 ① JSDoc ---

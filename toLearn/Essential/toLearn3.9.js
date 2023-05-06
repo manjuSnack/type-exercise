@@ -1,3 +1,4 @@
+// #3.9 상태를 가져보자, 읽은 글 표시하기
 const container = document.getElementById("root");
 const ajax = new XMLHttpRequest();
 const content = document.createElement("div");
