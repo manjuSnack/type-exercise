@@ -112,7 +112,11 @@ npm i -D ts-node
 npm i nodemon
 : 자동으로 command를 재실행 시켜준다.
 
-#5.5 ~ 학습중
+npm i -D @types/<패키지명>
+:TypeScript에 패키지에 대한 내용을 알려줌으로써 import 등 Error를 해결한다.
+
+npm i -D @types/node
+: nodeJS에 대한 package를 TypeScript에 적용한다
 
 ===
 
@@ -257,6 +261,51 @@ inspect -- HTML Document인 Elements에서 -- Edit as HTML
 : HTML 문서를 수정할 수 있다.
 
 --🥤 ispect에 Object 형식에서 0: { ...} , 1: { ... } , ... 10: { ... }에서의 숫자는 배열의 index를 가리킨다.
+
+# parcel 실행명령어
+
+: Terminal -- parcel index.html
+
+# 3.3 두 개의 화면을 가진 웹앱
+
+# UI
+화면은 어떻게 처리하는가?
+화면의 내비게이션을 어떻게 처리하는가?
+그 구조는 어떻게 만들어지는가를 제일 먼저 이해하자.
+
+# 3.7 UI 구현을 위한 준비작업
+
+코드의 양과 복잡도가 같이 늘어나면 좋지 않다. 코드의 양이 늘어나도 복잡도가 낮은 게 좋은 코드 작성법이다.
+
+# TailwindCSS 적용
+
+.html에 <head>태그 안에
+: <script src="https://cdn.tailwindcss.com"></script>
+
+# 4.0 Typescript Start Kit_Hacker News
+
+# 4.1 타입스크립트를 위한 환경설정
+
+# 4.2 변수에 타입 작성하기
+
+# 4.3 함수의 규격 작성하기
+
+# REST Client 사용법
+
+VSCode Extension 추가
+: REST Client를 추가
+
+# JSON 내용 읽어보기 
+① hn.http 파일 생성
+② 아래 내용 작성
+
+###
+GET "url 주소" HTTP/1.1
+
+③ Send Request 클릭 후 JSON 내용 읽어보기
+
+# 4.4 타입과 인터페이스
+
 
 
 

@@ -1,39 +1,74 @@
+// TypeScript Begin
+// {
+//   "include": ["src", "myPackage.d.ts"],
+//   "compilerOptions": {
+//     "outDir": "build",
+//     "target": "ES5",
+//     "lib": ["ES6", "DOM"],
+//     "strict": true,
+//     // "allowJs": true,
+//     "esModuleInterop": true,
+//     "module": "CommonJS",
+//     "noImplicitAny": true,
+//     "noImplicitThis": true,
+//     "sourceMap": true,
+//     "downlevelIteration": false
+//   }
+// }
+
+// JavaScript, TypeScript Essential
 {
-  "include": ["src", "myPackage.d.ts"],
   "compilerOptions": {
-    "outDir": "build",
-    "target": "ES6",
-    "lib": ["ES6", "DOM"],
     "strict": true,
-    // "allowJs": true,
-    "esModuleInterop": true,
-    "module": "CommonJS"
+    "target": "ES5",
+    "module": "CommonJS",
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "sourceMap": true,
+    "downlevelIteration": true
   }
 }
 
-// "include" : ["Directory"]
-// : JavaScript로 Compile하고 싶은 모든 디렉토리를 작성한다.
+/* 
 
-// "compilerOptions" : {}
-// "outDir":"directory"
-// : JavaScript file이 생성될 디렉토리를 지정
+"include" : ["Directory"]
+ : JavaScript로 Compile하고 싶은 모든 디렉토리를 작성한다.
 
-// "target":"ES6"
-// : JavaScript 버전을 ES6로 Compile한다.
-// 참고로 ES3는 const, let이 없고 var만 있고 TypeScript 5.5부터는 지원하지 않는다.
+"compilerOptions" : {}
+  
+"outDir":"directory"
+  : JavaScript file이 생성될 디렉토리를 지정
 
-// "lib":["ES6"]
-// : runtime environment를 정한다.
-// ["DOM"] : "DOM"을 추가하면 HTML Document의 API를 사용할 수 있다. 'document.'의 property를 사용할 수 있다.
+"target":"ES6"
+  : JavaScript 버전을 ES6로 Compile한다.
+  참고로 ES3는 const, let이 없고 var만 있고 TypeScript 5.5부터는 지원하지 않는다.
 
-// "strict":true
-// : true인 경우에는 TypeScript의 오류확인 및 검증을 킨다.
+"lib":["ES6"]
+  : runtime environment를 정한다.
+  ["DOM"] : "DOM"을 추가하면 HTML Document의 API를 사용할 수 있다. 'document.'의 property를 사용할 수 있다.
 
-// "allowJs":true
-// : JavaScript File을 TypeScript File 안에 허용한다. allowJS를 굳이 사용하지 않아도 된다.
+"strict":true
+  : true인 경우에는 TypeScript의 오류확인 및 검증을 킨다.
 
-// "esModuleInterop":true
-// : import Error 해결 방법 ② / toLearn5.5 참고
+"allowJs":true
+  : JavaScript File을 TypeScript File 안에 허용한다. allowJS를 굳이 사용하지 않아도 된다.
 
-// "module":"CommonJS"
-// : 기본적인 module을 설정한다.
+"esModuleInterop":true
+  : import Error 해결 방법 ② / toLearn5.5 참고
+
+"module":"CommonJS"
+  : 기본적인 module을 설정한다.
+
+---cut---
+
+
+"noImplicitAny":true
+  : JavaScript에서 TypeScript로 변환될 때 암묵적인 변환이 any 타입이 되는데 이를 알려준다.
+
+"sourceMap":true
+: TypeScript Compiler가 TypeScript를 변환한 dist라는 디렉토리 내 .js.map 파일을 sourceMap이라고 한다. 
+이 sourceMap은 Browser가 읽지 못하는 TypeScript → JavaScript로 바뀐 부분의 정보(연결된 정보)를 갖고 있다.
+
+
+*/
